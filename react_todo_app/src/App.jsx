@@ -22,7 +22,7 @@ function App() {
           number is  {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> lets start the leatning of react , lets gooooooo ......
+          Edit <code>src/App.jsx</code> 
         </p>
       </div>
       <p className="read-the-docs">
