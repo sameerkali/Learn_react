@@ -20,7 +20,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          number is  {count}
         </button>
         <p>
           Edit <code>src/App.jsx</code> lets start the leatning of react , lets gooooooo ......
