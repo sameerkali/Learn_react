@@ -26,7 +26,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-      . 😎 hii guys sameer faridi this side day 2 
+      . 😎 hii guys sameer faridi this side
       </p>
     </div>
   )
