@@ -26,7 +26,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-      lorem20 2-02200090290392093
+      lorem20 2-02200090290392093vv3fddjijid
       </p>
     </div>
   )
