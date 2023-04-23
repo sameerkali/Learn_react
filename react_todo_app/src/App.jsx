@@ -28,24 +28,7 @@ function App() {
       <p className="read-the-docs">
       llalla lilli lullu
       llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
+      llalla lilli lullu lallu hai tu
       llalla lilli lullu
       </p>
     </div>
