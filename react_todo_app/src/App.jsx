@@ -28,8 +28,6 @@ function App() {
       <p className="read-the-docs">
       llalla lilli lullu
       llalla lilli lullu
-      llalla lilli lullu
-      llalla lilli lullu
       </p>
     </div>
   )
