@@ -2,7 +2,18 @@ import Message from "./Message";
 import ListGroup from "./component/ListGroup"
 
 function App(){
-  return <div> <ListGroup /> </div>;
+  const items = [
+    "Ghaziabad",
+    "Patna",
+    "Delhi",
+    "Bhopal",
+    "Jaipur",
+    "Gurgao",
+    "Lucknow",
+    "Dehradune",
+    "Nenital"
+  ];
+  return <div> <ListGroup items={items} heading="Cities"/> </div>;
 }
 
 export default App;
