@@ -1,11 +1,6 @@
 import { useState } from "react";
 import "./ListGroup.css";
-import styled from "styled-components";
 
-const List = styled.ul`
-  list-style: none;
-  color: rgb(184, 47, 47);
-`;
 interface Props {
   items: string[];
   heading: string;
@@ -20,7 +15,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
     <>
       <h1>{heading}</h1>
       {items.length === 0 && <p> no item found</p>}
-      <List>
+      <ul className="list-group">
         {items.map((items, index) => (
           <li
             className={
@@ -37,7 +32,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
             {items}
           </li>
         ))}
-      </List>
+      </ul>
     </>
   );
 }
