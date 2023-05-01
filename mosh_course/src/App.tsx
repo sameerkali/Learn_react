@@ -1,5 +1,5 @@
 import Alert from "./component/Alert";
-import ListGroup from "./component/ListGroup";
+import Button from "./component/Button";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Alert>
         hello <span>world</span>
       </Alert>
+      <Button  color="secondary" onClick={()=>{console.log("Clicked")}}>My Button</Button>
     </div>
   );
 }
