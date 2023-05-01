@@ -1,13 +1,13 @@
+import { useState } from "react";
 import Alert from "./component/Alert";
 import Button from "./component/Button";
 
 function App() {
+  const [ alertVisible, setAlertVisible] =  useState(true);
   return (
     <div>
-      <Alert>
-        hello <span>world</span>
-      </Alert>
-      <Button  color="secondary" onClick={()=>{console.log("Clicked")}}>My Button</Button>
+      {alertVisible && <Alert>My Alert</Alert>}
+      <Button  color="secondary" onClick={()=>{console.log("hello i am clicked  ")}}>My Button</Button>
     </div>
   );
 }
