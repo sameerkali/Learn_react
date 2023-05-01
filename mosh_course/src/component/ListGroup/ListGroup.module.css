@@ -2,10 +2,10 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
-    background-color: aquamarine;
+    background-color: rgb(14, 226, 155);
 }
 .list-group
 {
     list-style:none;
-    color: black;
+    color: rgb(184, 47, 47);
 }
