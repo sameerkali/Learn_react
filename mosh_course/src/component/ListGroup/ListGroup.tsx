@@ -24,8 +24,8 @@ function ListGroup({items, heading, onSelectItem}: Props) {
           <li
             className={
               selectedIndex === index
-                ? "list-group-item active"
-                : "list-group-item"
+                ? "list-group-item active list-group"
+                : "list-group-item list-group"
             }
             key={items}
             onClick={ ()=>{ 

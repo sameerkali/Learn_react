@@ -4,3 +4,8 @@
     box-sizing: border-box;
     background-color: aquamarine;
 }
+.list-group
+{
+    list-style:none;
+    color: black;
+}
