@@ -19,8 +19,8 @@ const Form = () => {
           className="form-control"
         />
         { errors.name?.type === 'required' && <p>The name field is require.</p>}
-        { errors.name?.type === 'minLength' && <p style={{color: "red"}}>The name must be more then 3 charactors.</p>}
-        { errors.name?.type === 'maxLength' && <p style={{color: "red"}}>The name must be less then 16 charactors.</p>}
+        { errors.name?.type === 'minLength' && <p className="text-danger">The name must be more then 3 charactors.</p>}
+        { errors.name?.type === 'maxLength' && <p className="text-danger">The name must be less then 16 charactors.</p>}
       </div>
       <div className="mb-3">
         <label htmlFor="age" className="form-label">
