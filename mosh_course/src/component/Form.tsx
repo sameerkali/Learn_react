@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 
 const Form = () => {
+  
   const [person, setPerson] = useState({
     name: "",
     age: 0
