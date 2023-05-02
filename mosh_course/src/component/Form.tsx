@@ -30,7 +30,7 @@ const Form = () => {
         />
       </div>
       <button className="btn btn-primary" type="submit">
-        Submit
+        Submit hai
       </button>
     </form>
   );
