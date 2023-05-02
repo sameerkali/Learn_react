@@ -19,7 +19,7 @@ const Form = () => {
     <form onSubmit={handelSubmit}>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">
-          Name
+          Name type here
         </label>
         <input ref={nameRef} type="text" id="name" className="form-control" />
       </div>
