@@ -1,13 +1,15 @@
 import Like from "./component/Like";
 import LoadMore from "./component/LoadMore";
 import Form from "./component/Form";
+import Table from "./component/table";
 
 function App() {
  
   return (
-    <div>
+    <>
       <Form />
-    </div>
+      <Table></Table>
+    </>
   );
 }
 
