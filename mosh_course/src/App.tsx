@@ -1,15 +1,17 @@
-import Like from "./component/Like";
-import LoadMore from "./component/LoadMore";
-import Form from "./component/Form";
-import Table from "./component/table";
+import Table from "./eexpense-tracker/components/table";
 
 function App() {
+  const expences = [
+    {id: 1, description: 'sameer', amount: 10, category: 'Utilitys'},
+    {id: 2, description: 'faridi', amount: 10, category: 'Utilitys'},
+    {id: 3, description: 'rais', amount: 10, category: 'Utilitys'},
+    {id: 4, description: 'faridi', amount: 10, category: 'Utilitys'},
+  ]
  
   return (
-    <>
-      <Form />
-      <Table></Table>
-    </>
+    <div>
+    <Table expenses={expences} onDelete={(id) => console.log('Delete', id)} />
+    </div>
   );
 }
 
