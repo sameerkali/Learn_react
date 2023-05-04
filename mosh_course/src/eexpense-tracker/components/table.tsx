@@ -11,6 +11,7 @@ interface Props {
 }
 
 const table = ({ expenses, onDelete }: Props) => {
+  if(expenses.length === 0) return null;
   return (
     <div className="table">
       <table className="table table-bordered">
