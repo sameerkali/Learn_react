@@ -1,34 +1,85 @@
-import React from "react";
-import { categorys } from "../../App";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import categorys from "../category";
 
+const schema = z.object({
+  description: z
+    .string()
+    .min(3, { message: "Type atleast 3 letters" })
+    .max(100),
+  amount: z
+    .number({ invalid_type_error: "Amount is required" })
+    .min(0.01)
+    .max(100_00_00),
+  categorys: z.enum(categorys, {
+    errorMap: () => ({ message: "Category is required." })
+  })
+});
 
-const ExpensForm = () => {
+type ExpenseFormData = z.infer<typeof schema>;
+
+interface Props {
+  onSubmit: (data: ExpenseFormData) => void;
+}
+
+const ExpensForm = ({ onSubmit }: Props) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<ExpenseFormData>({ resolver: zodResolver(schema) });
+
   return (
-    <form action="">
+    <form onSubmit={handleSubmit(onSubmit)} action="">
       <div className="mb3">
         <label className="form-label" htmlFor="description">
           Description
         </label>
-        <input id="description" type="text" className="form-control" />
+        <input
+          {...register("description")}
+          id="description"
+          type="text"
+          className="form-control"
+        />
+        {errors.description && (
+          <p className="text-danger">{errors.description.message}</p>
+        )}
       </div>
       <div className="mb3">
         <label className="form-label" htmlFor="amount">
           Amount
         </label>
-        <input id="amount" type="number" className="form-control" />
+        <input
+          {...register("amount", { valueAsNumber: true })}
+          id="amount"
+          type="number"
+          className="form-control"
+        />
+        {errors.amount && (
+          <p className="text-danger">{errors.amount.message}</p>
+        )}
       </div>
       <div className="mb-3">
         <label htmlFor="category" className="form-label">
           Category
         </label>
-        <select name="" id="category" className="form-select">
+        <select
+          {...register("categorys", { required: true })}
+          name="categorys"
+          id="category"
+          className="form-select"
+        >
           <option value=""></option>
-          {categorys.map((categorys) => (
-            <option key={categorys} value={categorys}>
-              {categorys}
+          {categorys.map((category) => (
+            <option key={category} value={category}>
+              {category}
             </option>
           ))}
         </select>
+        {errors.categorys && (
+          <p className="text-danger">{errors.categorys.message}</p>
+        )}
       </div>
       <button className="btn btn-primary">Submit</button>
     </form>

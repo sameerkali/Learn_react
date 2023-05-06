@@ -1,5 +1,5 @@
 import React from "react";
-import { categorys } from "../../App";
+import categorys  from "../category";
 
 
 interface Props {
