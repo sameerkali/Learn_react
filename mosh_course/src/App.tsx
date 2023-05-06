@@ -25,7 +25,7 @@ function App() {
       <Table
         expenses={visibleExpenses}
         onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
-        //i m cheater
+        //i m cheater, day 2 of cheating sorry about that
       />
     </div>
   );
