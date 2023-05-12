@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import categorys from "../category";
+import category from "../category";
 
 const schema = z.object({
   description: z
@@ -12,7 +12,7 @@ const schema = z.object({
     .number({ invalid_type_error: "Amount is required" })
     .min(0.01)
     .max(100_00_00),
-  categorys: z.enum(categorys, {
+  category: z.enum(category, {
     errorMap: () => ({ message: "Category is required." })
   })
 });
@@ -69,20 +69,20 @@ const ExpensForm = ({ onSubmit }: Props) => {
           Category
         </label>
         <select
-          {...register("categorys", { required: true })}
-          name="categorys"
+          {...register("category", { required: true })}
+          name="category"
           id="category"
           className="form-select"
         >
           <option value=""></option>
-          {categorys.map((category) => (
+          {category.map((category) => (
             <option key={category} value={category}>
               {category}
             </option>
           ))}
         </select>
-        {errors.categorys && (
-          <p className="text-danger">{errors.categorys.message}</p>
+        {errors.category && (
+          <p className="text-danger">{errors.category.message}</p>
         )}
       </div>
       <button className="btn btn-primary">Submit</button>
