@@ -2,7 +2,7 @@ import { useState } from "react";
 import Table from "./eexpense-tracker/components/table";
 import ExpenseFilter from "./eexpense-tracker/components/expenseFilter";
 import ExpenseForm from "./eexpense-tracker/components/ExpensForm"
-import categorys from "./eexpense-tracker/category";
+import categories from "./eexpense-tracker/category";
 
 
 
@@ -23,6 +23,7 @@ function App() {
     <div>
       <div className="mb-5">
         <ExpenseForm onSubmit={expense => setExpenses([...expenses, { ...expense, id: expenses.length + 1}])} /> 
+        {/* <ExpenseForm onSubmit={data => console.log(data)} />  */}
       </div>
       <div className="mb-3">
         <ExpenseFilter
