@@ -19,6 +19,7 @@ This project provide a react like framework, for now contain `React17` & `React1
 clone this project
 
 pnpm install
+find this and Dm me for trrat
 
 pnpm gen:gql
 
