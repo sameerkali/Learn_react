@@ -12,7 +12,6 @@ pnpm add @my-react/react @my-react/react-dom
 This project provide a react like framework, for now contain `React17` & `React18` api by default 
 
 ---
-sam
 ### if you want to debug this project
 
 ```
