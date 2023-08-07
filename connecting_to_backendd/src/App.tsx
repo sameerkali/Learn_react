@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import axios, {AxiosError} from "axios";
 import { useState, useEffect } from "react";
 
@@ -9,26 +10,28 @@ function App() {
 
   const [users, setUsers] = useState<user[]>([]);
   const [error, setError] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => { 
-    const fetchUsers = async () => {
-      try{
-      const res = await axios
+    axios
         .get<user[]>("https://jsonplaceholder.typicode.com/users")
-        setUsers(res.data)
-      }catch(err){
-        setError((err as AxiosError).message)
-      }
-      }
-      fetchUsers();
+        .then(res => {
+          setUsers(res.data);
+          // setLoading(false);
+        })
+        .catch(err => {
+          setError(err.message);
+          // setLoading(false);
+        }).finally(()=>{
+          setLoading(false);
+        })
     },[]);
-    // .then(res => setUsers(res.data))
-    // .catch(err => setError(err.message));
 
   return (
     <>
 { error && <p className="text-danger">{error}</p>}
-    <ul>
+{ loading && <div className="spinner-border"></div>
+}    <ul>
       {users.map(user =>
         <li key={user.id}>
           {" "}{user.name}
