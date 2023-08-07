@@ -27,14 +27,28 @@ function App() {
         })
     },[]);
 
+    // function for deleting a data 
+    const deleteUser = (user:user) =>{
+      const originalUsers = [...users];
+
+      setUsers(users.filter(u => u.id !== user.id))
+
+      axios.delete('https://jsonplaceholder.typicode.com/users/'+ user.id)
+      .catch(err => {
+        setError(err.message);
+        setUsers(originalUsers);
+      })
+    }
+
   return (
     <>
 { error && <p className="text-danger">{error}</p>}
 { loading && <div className="spinner-border"></div>
-}    <ul>
+}    <ul className="list-group">
       {users.map(user =>
-        <li key={user.id}>
-          {" "}{user.name}
+        <li  className="list-group-item d-flex justify-content-between" key={user.id}>
+          {user.name}
+          <button onClick={() => deleteUser(user)} className="btn btn-outline-danger">Delete</button>
         </li>
       )}
     </ul>
