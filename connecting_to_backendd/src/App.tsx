@@ -1,8 +1,9 @@
 //efficient use of ChatGPT for comments and formatting 
 // Importing necessary styles and libraries
 import "bootstrap/dist/css/bootstrap.css";
-import axios from "axios";
+// import axios from "axios";
 import { useState, useEffect } from "react";
+import apiClient from "./services/api-client"
 
 // Main component
 function App() {
@@ -20,13 +21,13 @@ function App() {
   // Effect hook to fetch user data on component mount
   useEffect(() => {
     // Making an API request to fetch user data
-    axios
-      .get<user[]>("https://jsonplaceholder.typicode.com/users")
+    apiClient
+      .get<user[]>("/users")
       .then((res) => {
         // Setting the fetched user data to the 'users' state
         setUsers(res.data);
       })
-      .catch((err) => {
+      .catch((err ) => {
         // Handling error by setting error message to the 'error' state
         setError([err.message]);
       })
@@ -44,8 +45,8 @@ function App() {
     setUsers(users.filter((u) => u.id !== user.id));
 
     // Making a delete request to remove the user data from the server
-    axios
-      .delete("https://jsonplaceholder.typicode.com/users/" + user.id)
+    apiClient
+      .delete("/users/" + user.id)
       .catch((err) => {
         // Handling error by reverting the 'users' state to its original value
         setError([err.message]);
@@ -60,8 +61,8 @@ function App() {
     setUsers([...users, newUser]);
 
     // Making a post request to add the new user data to the server
-    axios
-      .post("https://jsonplaceholder.typicode.com/users", newUser)
+    apiClient
+      .post("/users", newUser)
       .then(({ data: savedUser }) => setUsers([savedUser, ...users]))
       .catch((err) => {
         // Handling error by reverting the 'users' state to its original value
@@ -74,7 +75,7 @@ function App() {
    const updatedUser = {...user, name:user.name + ' edited'}
    setUsers(users.map(u => u.id === user.id ? updatedUser : u))
 
-   axios.patch('https://jsonplaceholder.typicode.com/users/'+user.id, updatedUser)
+   apiClient.patch('/users/'+user.id, updatedUser)
    .catch(err => {
     setError(err.message);
     setUsers(originalUsers)
