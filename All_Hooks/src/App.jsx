@@ -42,3 +42,14 @@
 // };
 
 // export default App;
+
+
+// ---------------------------------------------------------- useContext -------------------------------
+
+const App = () => {
+  return (
+    <div>App</div>
+  )
+}
+
+export default App
